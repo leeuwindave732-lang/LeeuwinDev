@@ -638,6 +638,16 @@ section {
     overflow: hidden;
 }
 
+.portfolio-img a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: block;
+}
+
 .portfolio-img img {
     width: 100%;
     height: 250px;
@@ -660,7 +670,9 @@ section {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    pointer-events: none;
     transition: opacity var(--fast);
+    z-index: 3;
 }
 
 .portfolio-card:hover .portfolio-overlay {
@@ -672,6 +684,7 @@ section {
     font-size: 1.5rem;
     margin: 0 10px;
     transition: transform var(--fast);
+    pointer-events: auto;
 }
 
 .portfolio-overlay a:hover {

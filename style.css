@@ -621,16 +621,36 @@ section {
 .portfolio-card {
     background: var(--card-dark);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border: 2px solid var(--cyber-blue);
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: var(--shadow-1);
+    box-shadow: var(--shadow-neon);
     transition: all var(--med);
+    position: relative;
+}
+
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-2);
+    transform: translateY(-15px);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 0 60px rgba(0, 212, 255, 0.4);
+    border-color: var(--neon-pink);
+}
+
+.portfolio-card .portfolio-img,
+.portfolio-card img {
+    position: relative;
+    z-index: 2;
 }
 
 .portfolio-img {
@@ -650,7 +670,7 @@ section {
 
 .portfolio-img img {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
     transition: transform var(--med);
 }
@@ -1523,6 +1543,15 @@ button[type="submit"]:hover {
 .funfact-item:hover::before,
 .timeline-content:hover::before {
     left: 100%;
+}
+
+/* Project Image Styles */
+.project-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
 }
 
 /* Enhanced Portfolio Cards */
